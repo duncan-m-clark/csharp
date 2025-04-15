@@ -1,4 +1,4 @@
-class aboutMain {
+/*class aboutMain {
     /*Main: entry point of program
             must be declared inside class or struct
             enclosing class can be static
@@ -9,7 +9,7 @@ class aboutMain {
             don't need string[] args, can use GetCommandLineArgs()
             name of program is first element of GetArgs()
             implicitly private by default
-            returning int allows main to return status codes */
+            returning int allows main to return status codes
     static void Main (string[] args) {
         Console.WriteLine(args.Length);
     }
