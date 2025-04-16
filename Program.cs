@@ -1,6 +1,19 @@
-﻿public class Game {
+﻿using System.IO;
+
+public class Game {
     static void Main() {
         Console.WriteLine("Welcome to the Number Guessing Game!");
+
+        string path = @"Scores\scores.txt";
+        if (!File.Exists(path)) {
+            using FileStream stream = File.Create(path);
+            using StreamWriter writer = new StreamWriter(stream);
+            writer.WriteLine("Easy 0");
+            writer.WriteLine("Medium 0 ");
+            writer.WriteLine("Hard 0");
+        }
+
+        FileStream editStream = File.Open(path, FileMode.Open, FileAccess.ReadWrite);
 
         bool quit = false;
         while (!quit) {
@@ -54,7 +67,7 @@
                 Console.WriteLine("Oh no! You've failed to guess the number.");
             }
 
-            Console.Write("Would you like to play again? (Y/N)");
+            Console.Write("Would you like to play again? (Y/N) ");
             char cont = Convert.ToChar(Console.ReadLine());
 
             if (cont.Equals('N')) {
